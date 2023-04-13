@@ -24,6 +24,7 @@ class TestLambdaFunction(unittest.TestCase):
     """
     def test_get_item(self):
         event = {}
+        context = {}
         response = lambda_function.lambda_handler(event, {})
 
         self.assertEqual(response['statusCode'], 200)
