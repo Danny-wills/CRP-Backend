@@ -8,7 +8,7 @@ on:
     paths:
     - "Backend/**"
 
-job:
+jobs:
   terraform:
     name: Build
     runs-on: ubuntu-latest
