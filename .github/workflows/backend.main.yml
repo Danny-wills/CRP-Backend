@@ -45,6 +45,7 @@ jobs:
   #  ------------- Update resources with terraform ------
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
+    - name: Change directory to Backend folder
       run: |
         cd Backend
     - name: Terraform Format 
