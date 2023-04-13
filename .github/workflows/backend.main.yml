@@ -40,7 +40,7 @@ jobs:
         pip install -r requirements.txt
     - name: Test with unittest
       run: |
-        cd Backend/function && python3 -m unittest test_lambda.py
+        cd Backend/function && python3 -m unittest test_lambda.py && cd ..
 
   #  ------------- Update resources with terraform ------
     - name: Setup Terraform
