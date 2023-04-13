@@ -11,8 +11,8 @@ terraform {
 # Configure the AWS Provider
 provider "aws" {
   # profile = "iamadmin-general"
-  region  = "us-east-1"
-  alias   = "us-east-1"
+  region = "us-east-1"
+  alias  = "us-east-1"
 }
 
 
