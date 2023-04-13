@@ -3,7 +3,7 @@ import json
 import boto3
 
 # Create a resource representing a Dynamodb table
-dynamodb = boto3.resource('dynamodb')
+dynamodb = boto3.resource("dynamodb")
 table = dynamodb.Table('visitor_counter')
 
 
