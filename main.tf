@@ -51,8 +51,8 @@ ITEM
 
 # ------------------- lambda function --------------- #
 # Using the assume role policy from above, create a role for lambda
-resource "aws_iam_role" "role_for_lambda" {
-  name               = "role_for_lambda"
+resource "aws_iam_role" "role_iam_for_lambda" {
+  name               = "role_iam_for_lambda"
   assume_role_policy = <<EOF
   {
     "Version": "2012-10-17",
@@ -69,14 +69,14 @@ resource "aws_iam_role" "role_for_lambda" {
 EOF
 }
 resource "aws_iam_role_policy_attachment" "lambda_policy" {
-  role       = aws_iam_role.role_for_lambda.name
+  role       = aws_iam_role.role_iam_for_lambda.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
 # Po;icy to allow lambda access dynamodb
 resource "aws_iam_role_policy" "dynamodb-lambda-policy" {
   name = "dynamodb_lambda_policy"
-  role = aws_iam_role.role_for_lambda.id
+  role = aws_iam_role.role_iam_for_lambda.id
   policy = jsonencode({
     "Version" : "2012-10-17",
     "Statement" : [
@@ -100,7 +100,7 @@ resource "aws_lambda_function" "counter_function" {
   function_name    = "counter_function"
   filename         = data.archive_file.zip.output_path
   source_code_hash = data.archive_file.zip.output_base64sha256
-  role             = aws_iam_role.role_for_lambda.arn
+  role             = aws_iam_role.role_iam_for_lambda.arn
   handler          = "lambda_function.lambda_handler"
   runtime          = "python3.9"
 }
