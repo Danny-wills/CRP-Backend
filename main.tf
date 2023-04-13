@@ -92,7 +92,7 @@ resource "aws_iam_role_policy" "dynamodb-lambda-policy" {
 # Compress python file for lambda into zip
 data "archive_file" "zip" {
   type        = "zip"
-  source_file = "CRP-Backend/function/lambda_function.py"
+  source_file = "Backend/function/lambda_function.py"
   output_path = "lambda_function.zip"
 }
 
