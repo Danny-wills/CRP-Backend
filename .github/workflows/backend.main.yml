@@ -6,11 +6,11 @@ on:
     branches:
     - main
     paths:
-    - 'Backend/**'
+    - "Backend/**"
 
 jobs:
   terraform:
-    name: 'Terraform'
+    name: Build
     runs-on: ubuntu-latest
     strategy:
       matrix:
