@@ -47,8 +47,9 @@ def lambda_handler(event, context):
 
     """
 
-    response = get_item()
     update_item()
+    response = get_item()
+    
     
 
     item = response['Item']
