@@ -12,9 +12,9 @@ jobs:
   terraform:
     name: Build
     runs-on: ubuntu-latest
-    # strategy:
-    #   matrix:
-    #     python-version: ['3.7', '3.9', '3.10', '3.11']
+    strategy:
+      matrix:
+        python-version: ['3.7', '3.9', '3.10', '3.11']
 
     steps:
     - name: Checkout
